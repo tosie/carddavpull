@@ -14,7 +14,8 @@ module CardDavPull
     WELL_KNOWN_URI = '/.well-known/carddav/'
   
     DEFAULTS = {
-      allow_insecure_connections: false
+      allow_insecure_connections: false,
+      debug: false
     }
   
     attr :debug
@@ -32,10 +33,9 @@ module CardDavPull
       
       options = DEFAULTS.merge(options)
       @allow_insecure_connections = options[:allow_insecure_connections]
+      @debug = options[:debug]
       
       @connections = {}
-      
-      @debug = true
     end
 
     def base_url
